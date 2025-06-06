@@ -422,9 +422,17 @@ document.write(`
 <section id="genre-driven-consumption-insights">
 <h2>Genre driven consumption insights<a class="headerlink" href="#genre-driven-consumption-insights" title="Link to this heading">#</a></h2>
 <p>Provide a comparative analysis of spend-per-head and product mix across music genres, surfaced in a simple dashboard that lets the programming team filter by season or venue format.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dummy data for genre-driven spend-per-head and product mix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="c1"># Dummy data for genre-driven spend-per-head and product mix</span>
 <span class="n">genres</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Techno&#39;</span><span class="p">,</span> <span class="s1">&#39;Hip-Hop&#39;</span><span class="p">,</span> <span class="s1">&#39;House&#39;</span><span class="p">,</span> <span class="s1">&#39;Pop&#39;</span><span class="p">,</span> <span class="s1">&#39;R&amp;B&#39;</span><span class="p">]</span>
 <span class="n">spend_per_head</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>  <span class="c1"># Euros</span>
 <span class="n">beer_percentage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>  <span class="c1"># % of total sales</span>
@@ -456,19 +464,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">soft_drink_percentage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Create a figure with two subplots: bar chart for spend-per-head, stacked bar for product mix</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Bar chart: Spend per head by genre</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">spend_per_head</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/791f1098b237c97c396708ecb54b232f6b6f25df9eb6c357f19bd21276f19cbe.png" src="../_images/791f1098b237c97c396708ecb54b232f6b6f25df9eb6c357f19bd21276f19cbe.png" />
 </div>
 </div>
 </section>
@@ -514,7 +512,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0363109e19e2499fc068f90933a87d20bb96fd65bf107e74fee82bad8d0cbe36.png" src="../_images/0363109e19e2499fc068f90933a87d20bb96fd65bf107e74fee82bad8d0cbe36.png" />
+<img alt="../_images/1542999de661deb34f9c526d46625668140628a80ae69c0b6b06ec192bcfea3d.png" src="../_images/1542999de661deb34f9c526d46625668140628a80ae69c0b6b06ec192bcfea3d.png" />
 </div>
 </div>
 </section>
