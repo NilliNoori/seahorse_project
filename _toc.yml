@@ -4,4 +4,6 @@
 format: jb-book
 root: docs/home
 chapters:
+- file: docs/dataset
 - file: docs/notebook
+- file: docs/data_analysis
