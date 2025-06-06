@@ -422,63 +422,57 @@ document.write(`
 <section id="genre-driven-consumption-insights">
 <h2>Genre driven consumption insights<a class="headerlink" href="#genre-driven-consumption-insights" title="Link to this heading">#</a></h2>
 <p>Provide a comparative analysis of spend-per-head and product mix across music genres, surfaced in a simple dashboard that lets the programming team filter by season or venue format.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="c1"># Dummy data for genre-driven spend-per-head and product mix</span>
+
+<span class="c1"># Dummy data</span>
 <span class="n">genres</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Techno&#39;</span><span class="p">,</span> <span class="s1">&#39;Hip-Hop&#39;</span><span class="p">,</span> <span class="s1">&#39;House&#39;</span><span class="p">,</span> <span class="s1">&#39;Pop&#39;</span><span class="p">,</span> <span class="s1">&#39;R&amp;B&#39;</span><span class="p">]</span>
 <span class="n">spend_per_head</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>  <span class="c1"># Euros</span>
 <span class="n">beer_percentage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>  <span class="c1"># % of total sales</span>
 <span class="n">cocktail_percentage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">soft_drink_percentage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
 
-<span class="c1"># Create a figure with two subplots: bar chart for spend-per-head, stacked bar for product mix</span>
+<span class="c1"># Create figure with two subplots</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
-<span class="c1"># Bar chart: Spend per head by genre</span>
+<span class="c1"># Bar chart: Spend per head by genre (gray)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">spend_per_head</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Spend per Head by Music Genre&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Spend per Head by Music Genre&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;€ per person&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="c1"># Stacked bar chart: Product mix by genre</span>
-<span class="n">bar1</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">beer_percentage</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Beer&#39;</span><span class="p">)</span>
-<span class="n">bar2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">cocktail_percentage</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">beer_percentage</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cocktails&#39;</span><span class="p">)</span>
+<span class="c1"># Stacked bar chart: Product mix with updated colors</span>
+<span class="n">bar1</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">beer_percentage</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Beer&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#A6DCEF&#39;</span><span class="p">)</span>            <span class="c1"># lichtblauw</span>
+<span class="n">bar2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">cocktail_percentage</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">beer_percentage</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cocktails&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#D1B3FF&#39;</span><span class="p">)</span>  <span class="c1"># lichtpaars</span>
 <span class="n">bottom2</span> <span class="o">=</span> <span class="p">[</span><span class="n">beer</span> <span class="o">+</span> <span class="n">cocktail</span> <span class="k">for</span> <span class="n">beer</span><span class="p">,</span> <span class="n">cocktail</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">beer_percentage</span><span class="p">,</span> <span class="n">cocktail_percentage</span><span class="p">)]</span>
-<span class="n">bar3</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">soft_drink_percentage</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">bottom2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Soft Drinks&#39;</span><span class="p">)</span>
+<span class="n">bar3</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genres</span><span class="p">,</span> <span class="n">soft_drink_percentage</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">bottom2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Soft Drinks&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#B3E283&#39;</span><span class="p">)</span>  <span class="c1"># lichtgroen</span>
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Product Mix by Music Genre&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Product Mix by Music Genre&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f Total Sales&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
-<img alt="../_images/791f1098b237c97c396708ecb54b232f6b6f25df9eb6c357f19bd21276f19cbe.png" src="../_images/791f1098b237c97c396708ecb54b232f6b6f25df9eb6c357f19bd21276f19cbe.png" />
+<img alt="../_images/d1f59b40e901eed407b3c4665b4d646245c812de0c7ffde9181370fcf67da407.png" src="../_images/d1f59b40e901eed407b3c4665b4d646245c812de0c7ffde9181370fcf67da407.png" />
 </div>
 </div>
 </section>
 <section id="bar-revenue-trends-by-ticket-category">
 <h2>Bar Revenue Trends by Ticket Category<a class="headerlink" href="#bar-revenue-trends-by-ticket-category" title="Link to this heading">#</a></h2>
 <p>Build a lightweight simulation tool that tests different early-bird ticket quantities &amp; prices, showing the impact on both ticket revenue and bar spend based on historic arrival-time vs-spend patterns.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -489,36 +483,44 @@ document.write(`
 <span class="n">drinks_sold</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">800</span><span class="p">]</span>
 <span class="n">tickets_sold</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
 
-<span class="c1"># Create a DataFrame for easier plotting</span>
+<span class="c1"># Create DataFrame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;Ticket Type&#39;</span><span class="p">:</span> <span class="n">ticket_types</span><span class="p">,</span>
     <span class="s1">&#39;Tickets Sold&#39;</span><span class="p">:</span> <span class="n">tickets_sold</span><span class="p">,</span>
     <span class="s1">&#39;Drinks Sold&#39;</span><span class="p">:</span> <span class="n">drinks_sold</span>
 <span class="p">})</span>
 
-<span class="c1"># Plot: Drinks sold vs Tickets sold per ticket type</span>
+<span class="c1"># Colors matching the slide theme (soft yellow + purple)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Tickets Sold&#39;</span><span class="p">:</span> <span class="s1">&#39;#EBD9A6&#39;</span><span class="p">,</span>  <span class="c1"># soft beige-yellow</span>
+    <span class="s1">&#39;Drinks Sold&#39;</span><span class="p">:</span> <span class="s1">&#39;#A192C4&#39;</span>    <span class="c1"># muted lavender purple</span>
+<span class="p">}</span>
+
+<span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.35</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tickets Sold&#39;</span><span class="p">],</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tickets Sold&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Drinks Sold&#39;</span><span class="p">],</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Drinks Sold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tickets Sold&#39;</span><span class="p">],</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tickets Sold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="s1">&#39;Tickets Sold&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Drinks Sold&#39;</span><span class="p">],</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Drinks Sold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="s1">&#39;Drinks Sold&#39;</span><span class="p">])</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Ticket Type&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Quantity&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Tickets Sold vs. Drinks Sold by Ticket Type&#39;</span><span class="p">)</span>
+<span class="c1"># Aesthetics</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Ticket Type&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Tickets Sold vs. Drinks Sold by Ticket Type&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">bar_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ticket Type&#39;</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
-<img alt="../_images/1542999de661deb34f9c526d46625668140628a80ae69c0b6b06ec192bcfea3d.png" src="../_images/1542999de661deb34f9c526d46625668140628a80ae69c0b6b06ec192bcfea3d.png" />
+<img alt="../_images/1028d81135deed33d8a304063bc9d8aa3302986695213644415ec19644a40d58.png" src="../_images/1028d81135deed33d8a304063bc9d8aa3302986695213644415ec19644a40d58.png" />
 </div>
 </div>
 </section>
