@@ -5,5 +5,5 @@ format: jb-book
 root: docs/home
 chapters:
 - file: docs/dataset
-- file: docs/notebook
+- file: docs/lofi_tickets_analysis
 - file: docs/data_analysis
