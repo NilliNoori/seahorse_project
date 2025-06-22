@@ -1,0 +1,2202 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The impact of early admission tickets on bar revenue &#8212; Masterchallenge Lofi</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/lofi_tickets_analysis';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Predicting staff &amp; bar revenue" href="data_analysis.html" />
+    <link rel="prev" title="Dataset" href="dataset.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Masterchallenge Lofi</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">Dataset</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The impact of early admission tickets on bar revenue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis.html">Predicting staff &amp; bar revenue</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/NilliNoori/seahorse_project/blob/main/docs/docs/lofi_tickets_analysis.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NilliNoori/seahorse_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NilliNoori/seahorse_project/issues/new?title=Issue%20on%20page%20%2Fdocs/lofi_tickets_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/lofi_tickets_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The impact of early admission tickets on bar revenue</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-behavioral-perspective">A Behavioral Perspective</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-early-ticket-pricing-and-sales-distribution">Evaluating Early Ticket Pricing and Sales Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-conversion-impact-based-on-price-differences">Estimating Conversion Impact Based on Price Differences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-net-revenue-impact-of-early-ticket-pricing-strategies">Simulating the Net Revenue Impact of Early Ticket Pricing Strategies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-insights-daily-summaries-of-attendance-and-spending">Aggregating Insights: Daily Summaries of Attendance and Spending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-trends-analyzing-the-ratio-of-early-arrivals">Identifying Trends: Analyzing the Ratio of Early Arrivals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-impact-bar-revenue-by-early-arrival-group">Visualizing the Impact: Bar Revenue by Early Arrival Group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-insights-the-impact-of-early-arrivals-on-bar-revenue">Initial Insights: The Impact of Early Arrivals on Bar Revenue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-possibilities-revenue-impact-across-scenarios">Visualizing the Possibilities: Revenue Impact Across Scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up-key-findings-and-future-considerations">Wrapping Up: Key Findings and Future Considerations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-impact-of-early-admission-tickets-on-bar-revenue">
+<h1>The impact of early admission tickets on bar revenue<a class="headerlink" href="#the-impact-of-early-admission-tickets-on-bar-revenue" title="Link to this heading">#</a></h1>
+<p>Understanding what drives bar revenue during events is essential for optimizing both guest experience and business performance. One potential factor influencing revenue is the timing of guest arrival. Specifically, guests who arrive early may have more time to purchase drinks, engage with the venue, and ultimately contribute more to overall sales.</p>
+<p>This analysis investigates the relationship between early admission ticket holders and bar spending behavior. By analyzing visitor arrival patterns and comparing them with bar revenue data, we aim to answer the following question:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Do earlier arrivals lead to higher bar revenue?
+</pre></div>
+</div>
+<p>The results can help inform ticketing strategy, event scheduling, and promotional efforts aimed at maximizing on-site sales.</p>
+<section id="a-behavioral-perspective">
+<h2>A Behavioral Perspective<a class="headerlink" href="#a-behavioral-perspective" title="Link to this heading">#</a></h2>
+<p>To explore whether early guest arrivals contribute to increased spending, we analyzed bar revenue on days with high versus low early arrival ratios. The underlying idea is simple: guests who enter earlier may have more idle time to consume drinks before the event peaks, potentially boosting bar sales.</p>
+<p>To test this, we split event days into two categories:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Many early arrivals (above-median early arrival ratio)
+
+Few early arrivals (below-median)
+</pre></div>
+</div>
+<p>We then calculated the average total bar revenue for each group and visualized the results using a bar plot.</p>
+<div class="cell tag_hide_input tag_remove_cell_outputs docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">agg_df</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;early_group&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bar_spend&quot;</span><span class="p">,</span>
+    <span class="n">ci</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span>  <span class="c1"># use &quot;sd&quot; for standard deviation, or &quot;se&quot; for standard error</span>
+    <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#a8dadc&quot;</span><span class="p">,</span> <span class="s2">&quot;#f4a9ae&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Add value labels on top of each bar</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;€</span><span class="si">{</span><span class="n">height</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average Bar Revenue on Days with Many vs Few Early Arrivals&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Group (based on share of early arrivals)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average Total Bar Revenue (€)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">data</span><span class="o">=</span><span class="n">agg_df</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;early_group&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bar_spend&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">ci</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span>  <span class="c1"># use &quot;sd&quot; for standard deviation, or &quot;se&quot; for standard error</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#a8dadc&quot;</span><span class="p">,</span> <span class="s2">&quot;#f4a9ae&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Add value labels on top of each bar</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;agg_df&#39; is not defined
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x500 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The chart displays the average total bar revenue on days with a high versus low share of early arrivals.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On days with many early arrivals, average bar revenue was approximately €20,895.
+
+On days with fewer early arrivals, average bar revenue was approximately €16,262.
+
+This represents a difference of over €4,600.
+</pre></div>
+</div>
+<p>To assess whether this difference is statistically significant, an independent t-test was conducted. The result (p = 0.0211) indicates a statistically significant difference at the 5% level. This means it is unlikely that the observed difference occurred by chance.</p>
+<p>These findings suggest that a higher proportion of early-arriving guests is associated with increased bar revenue. This insight may support strategic decisions around early access ticketing, guest flow management, and event scheduling aimed at maximizing on-site revenue.</p>
+<section id="evaluating-early-ticket-pricing-and-sales-distribution">
+<h3>Evaluating Early Ticket Pricing and Sales Distribution<a class="headerlink" href="#evaluating-early-ticket-pricing-and-sales-distribution" title="Link to this heading">#</a></h3>
+<p>Having established that a higher share of early arrivals is associated with increased bar revenue, we now examine the current pricing and sales structure of early admission tickets. The objective is to understand how these tickets are priced and how frequently they are sold compared to regular tickets.</p>
+<p>This analysis provides the foundation for evaluating the potential impact of adjusting early ticket pricing, either to increase volume or to incentivize regular ticket holders to switch. Specifically, we examine the number of tickets sold per pricing tier and calculate the average price per ticket type for both early and regular categories.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">early_tickets_df</span> <span class="o">=</span> <span class="n">tickets_v1_df</span><span class="p">[</span><span class="n">tickets_v1_df</span><span class="p">[</span><span class="s2">&quot;ticket_category&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;early&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">regular_tickets_df</span> <span class="o">=</span> <span class="n">tickets_v1_df</span><span class="p">[</span><span class="n">tickets_v1_df</span><span class="p">[</span><span class="s2">&quot;ticket_category&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;regular&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">early_ticket_summary</span> <span class="o">=</span> <span class="n">early_tickets_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;ticket_name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">ticket_count</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;ticket_name&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">),</span>
+    <span class="n">average_price</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;total_price&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">regular_ticket_summary</span> <span class="o">=</span> <span class="n">regular_tickets_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;ticket_name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">ticket_count</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;ticket_name&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">),</span>
+    <span class="n">average_price</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;total_price&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Early Ticket Summary:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">early_ticket_summary</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Regular Ticket Summary:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">regular_ticket_summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Early Ticket Summary:
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-14afe065-57d4-4777-9fd3-82a8399aec43" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ticket_name</th>
+      <th>ticket_count</th>
+      <th>average_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Access by day // Early admission (enter betwee...</td>
+      <td>150</td>
+      <td>6.250000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Access by night // Early admission (enter betw...</td>
+      <td>150</td>
+      <td>6.250000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Early Access Ticket (before 16:00)</td>
+      <td>427</td>
+      <td>9.750000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Early Admission (enter before 00:30)</td>
+      <td>100</td>
+      <td>10.750000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Early Admission (enter before 16.00)</td>
+      <td>250</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Early Admission (enter before 17:00)</td>
+      <td>400</td>
+      <td>8.359375</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Early Entrance (entrance before 16:00)</td>
+      <td>1</td>
+      <td>8.750000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Early Entry (before 16:00)</td>
+      <td>108</td>
+      <td>10.750000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Early admission (enter before 00:00)</td>
+      <td>432</td>
+      <td>8.821759</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Early admission (enter before 00:30)</td>
+      <td>50</td>
+      <td>10.750000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Early admission (enter before 01:00)</td>
+      <td>150</td>
+      <td>9.750000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Early admission (enter before 15:00)</td>
+      <td>132</td>
+      <td>12.500000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Early admission (enter before 16:00)</td>
+      <td>1885</td>
+      <td>10.490716</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Early admission (enter before 17:00)</td>
+      <td>1625</td>
+      <td>9.173538</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Early admission (enter before 20:00)</td>
+      <td>286</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Early admission (enter before 23:00)</td>
+      <td>500</td>
+      <td>10.250000</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Early admission (enter before 23:30)</td>
+      <td>3374</td>
+      <td>9.648637</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Early admission (entrance before 16:00)</td>
+      <td>125</td>
+      <td>6.200000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Early admission (entrance before 17:00)</td>
+      <td>500</td>
+      <td>10.375000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Early admission (entrance untill 16:00)</td>
+      <td>504</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Early admission (entry before 16:00)</td>
+      <td>429</td>
+      <td>5.518648</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Early admission (entry until 16:00)</td>
+      <td>100</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Early admission (entry until 18:00)</td>
+      <td>376</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Early admission (entry until 20:00)</td>
+      <td>188</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Early admission (entry untill 14:00)</td>
+      <td>100</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Early admission (entry untill 16:00)</td>
+      <td>754</td>
+      <td>5.805703</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Early admission (entry untill 17:00)</td>
+      <td>106</td>
+      <td>6.556604</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Early admission (entry untill 20:00)</td>
+      <td>231</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Early entrance (enter before 00:00)</td>
+      <td>75</td>
+      <td>10.750000</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Early entrance (enter before midnight)</td>
+      <td>360</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Lofi by Day &amp; Night // Early admission (entran...</td>
+      <td>271</td>
+      <td>7.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-14afe065-57d4-4777-9fd3-82a8399aec43')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-14afe065-57d4-4777-9fd3-82a8399aec43 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-14afe065-57d4-4777-9fd3-82a8399aec43');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-6faffdbf-358f-4fcf-93e3-a613ef953bf5">
+      <button class="colab-df-quickchart" onclick="quickchart('df-6faffdbf-358f-4fcf-93e3-a613ef953bf5')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-6faffdbf-358f-4fcf-93e3-a613ef953bf5 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_e27ccc4a-94b0-4b88-b6f8-d68b93062c1d">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('early_ticket_summary')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_e27ccc4a-94b0-4b88-b6f8-d68b93062c1d button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('early_ticket_summary');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regular Ticket Summary:
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-2dd2b464-7183-410e-bf75-e0f14faf19a8" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ticket_name</th>
+      <th>ticket_count</th>
+      <th>average_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Access by day &amp; night // Regular (enter betwee...</td>
+      <td>556</td>
+      <td>12.250000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Access by day // Regular (enter between 14:00 ...</td>
+      <td>226</td>
+      <td>8.750000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Access by night // Regular (enter between 23:0...</td>
+      <td>800</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>General</td>
+      <td>240</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>General admission (enter before 03:00)</td>
+      <td>1869</td>
+      <td>12.046950</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Lofi by Day &amp; Night // Regular</td>
+      <td>620</td>
+      <td>8.750000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Lofi by Night // Regular (entrance from 22:00)</td>
+      <td>150</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Phase 1 - Regular Entrance</td>
+      <td>9</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Phase 2 - Regular Entrance</td>
+      <td>3</td>
+      <td>11.250000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Phase 3 - Regular Entrance</td>
+      <td>4</td>
+      <td>12.500000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Phase 4 - Regular Entrance</td>
+      <td>35</td>
+      <td>13.750000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Regular</td>
+      <td>7760</td>
+      <td>8.816688</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Regular (entrance before 18:00)</td>
+      <td>510</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Regular (entry untill 17:00)</td>
+      <td>341</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Regular - Entry until 18:00</td>
+      <td>225</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Regular - Entry untill 15:00</td>
+      <td>25</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Regular Entrance</td>
+      <td>12</td>
+      <td>14.770833</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Regular Ticket</td>
+      <td>1540</td>
+      <td>11.723864</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Regular Tickets</td>
+      <td>451</td>
+      <td>12.250000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Regular admission (enter before 18:00)</td>
+      <td>1344</td>
+      <td>15.000000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Regular ticket</td>
+      <td>3310</td>
+      <td>11.283006</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Regular ticket (enter before 03:00)</td>
+      <td>3244</td>
+      <td>11.708462</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2dd2b464-7183-410e-bf75-e0f14faf19a8')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-2dd2b464-7183-410e-bf75-e0f14faf19a8 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-2dd2b464-7183-410e-bf75-e0f14faf19a8');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-e1592698-f644-4aa5-87a4-262ba8d1804e">
+      <button class="colab-df-quickchart" onclick="quickchart('df-e1592698-f644-4aa5-87a4-262ba8d1804e')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-e1592698-f644-4aa5-87a4-262ba8d1804e button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_ad6d0248-0e87-47c3-be92-db6601130a17">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('regular_ticket_summary')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_ad6d0248-0e87-47c3-be92-db6601130a17 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('regular_ticket_summary');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="estimating-conversion-impact-based-on-price-differences">
+<h3>Estimating Conversion Impact Based on Price Differences<a class="headerlink" href="#estimating-conversion-impact-based-on-price-differences" title="Link to this heading">#</a></h3>
+<p>With the current pricing data available, we observe a clear difference between the average prices of early admission and regular tickets. On average, early tickets are priced at approximately €8.21, while regular tickets average around €10.22. This results in a price difference of €2.01.</p>
+<p>Based on this difference, we estimate the potential behavioral response of regular ticket buyers. Research in consumer pricing suggests that even modest price differences can influence purchasing decisions, especially when the alternative offers the same or similar value (e.g., access to the same event).</p>
+<p>To model this effect, we make a conservative assumption:<br />
+<strong>15% of regular ticket buyers could be incentivized to switch to an early admission ticket.</strong></p>
+<p>This conversion rate assumption serves as a baseline for estimating potential shifts in ticket sales behavior and its resulting financial impact. It reflects general sensitivity to price incentives while acknowledging that other factors (such as convenience or perceived exclusivity) may also influence decision-making.</p>
+<p>The next step involves simulating the effects of such a shift under different pricing scenarios.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_early_price</span> <span class="o">=</span> <span class="n">early_ticket_summary</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">avg_regular_price</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">price_difference</span> <span class="o">=</span> <span class="n">avg_regular_price</span> <span class="o">-</span> <span class="n">avg_early_price</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average early ticket price: €</span><span class="si">{</span><span class="n">avg_early_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average regular ticket price: €</span><span class="si">{</span><span class="n">avg_regular_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Price difference (Regular - Early): €</span><span class="si">{</span><span class="n">price_difference</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Assumption for conversion rate:</span>
+<span class="c1"># Based on the price difference, we assume a certain percentage of regular ticket buyers</span>
+<span class="c1"># would be incentivized to switch to a cheaper early admission ticket.</span>
+<span class="c1"># A larger price difference is assumed to lead to a higher conversion rate.</span>
+<span class="c1"># Let&#39;s assume a conversion rate of 15% of regular ticket buyers would switch</span>
+<span class="c1"># given the current average price difference. This is a reasonable starting point</span>
+<span class="c1"># for estimation, assuming some price sensitivity among customers.</span>
+
+<span class="n">conversion_rate_assumption</span> <span class="o">=</span> <span class="mf">0.15</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Assumption:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We assume that </span><span class="si">{</span><span class="n">conversion_rate_assumption</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2"> of regular ticket buyers&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;would be incentivized to purchase a cheaper early admission ticket.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This assumption is based on the observed average price difference and general consumer behavior regarding price incentives.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average early ticket price: €8.21
+Average regular ticket price: €10.22
+Price difference (Regular - Early): €2.01
+
+Assumption:
+We assume that 15% of regular ticket buyers
+would be incentivized to purchase a cheaper early admission ticket.
+This assumption is based on the observed average price difference and general consumer behavior regarding price incentives.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the current average early ticket price from the early_ticket_summary_v1 DataFrame</span>
+<span class="c1"># Use early_ticket_summary_v1 as it was calculated in the last relevant step that had access to price information.</span>
+<span class="n">current_avg_early_price</span> <span class="o">=</span> <span class="n">early_ticket_summary_v1</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">current_avg_regular_price</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># Assuming regular_ticket_summary is still available</span>
+
+<span class="c1"># Define a hypothetical cheaper price for early admission tickets.</span>
+<span class="c1"># This should be lower than the current average early ticket price and potentially attractive to regular buyers.</span>
+<span class="c1"># Let&#39;s propose a 20% reduction from the current average early ticket price as the simulated price.</span>
+<span class="n">simulated_early_price</span> <span class="o">=</span> <span class="n">current_avg_early_price</span> <span class="o">*</span> <span class="mf">0.80</span>  <span class="c1"># 20% reduction</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current average early ticket price: €</span><span class="si">{</span><span class="n">current_avg_early_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current average regular ticket price: €</span><span class="si">{</span><span class="n">current_avg_regular_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hypothetical cheaper early admission ticket price: €</span><span class="si">{</span><span class="n">simulated_early_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current average early ticket price: €8.21
+Current average regular ticket price: €10.22
+Hypothetical cheaper early admission ticket price: €6.57
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulating-the-net-revenue-impact-of-early-ticket-pricing-strategies">
+<h3>Simulating the Net Revenue Impact of Early Ticket Pricing Strategies<a class="headerlink" href="#simulating-the-net-revenue-impact-of-early-ticket-pricing-strategies" title="Link to this heading">#</a></h3>
+<p>To assess whether adjusting early ticket prices could lead to a net financial benefit, we simulate the potential revenue impact of switching a portion of regular ticket buyers to a cheaper early ticket alternative. This analysis incorporates both potential gains from increased bar spending and potential losses from reduced ticket income.</p>
+<p>In the previous step, we assumed a hypothetical early ticket price of €6.57 (a 20% discount from the current average). Based on this, we estimated the number of regular buyers likely to switch and calculated the net revenue effect by subtracting lost ticket revenue from estimated bar revenue gains. The result showed a positive net impact of approximately €3,778.</p>
+<p>While this scenario was based on a fixed assumption of 15% conversion, it is important to understand how sensitive the outcome is to this parameter. We therefore expand the analysis by simulating a <strong>range of conversion rates</strong>, from 0% to 30%, in 1% increments. For each level, we compute:</p>
+<ul class="simple">
+<li><p>The number of regular buyers expected to switch</p></li>
+<li><p>The ticket revenue lost due to the price difference</p></li>
+<li><p>The estimated bar revenue gained from those new early attendees</p></li>
+<li><p>The resulting <strong>net revenue impact</strong></p></li>
+</ul>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Calculate the estimated number of new early attendees.</span>
+<span class="c1"># estimated_switching_buyers was calculated in a previous step.</span>
+<span class="c1"># conversion_rate_assumption was defined in a previous step.</span>
+<span class="n">estimated_new_early_attendees</span> <span class="o">=</span> <span class="n">estimated_switching_buyers</span> <span class="o">*</span> <span class="n">conversion_rate_assumption</span>
+
+<span class="c1"># 2. Calculate the potential gained bar revenue.</span>
+<span class="c1"># avg_bar_spend_per_early_attendee was calculated in the previous step.</span>
+<span class="n">potential_gained_bar_revenue</span> <span class="o">=</span> <span class="n">estimated_new_early_attendees</span> <span class="o">*</span> <span class="n">avg_bar_spend_per_early_attendee</span>
+
+<span class="c1"># 3. Print the estimated number of new early attendees and the potential gained bar revenue.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimated number of new early attendees: </span><span class="si">{</span><span class="n">estimated_new_early_attendees</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Potential gained bar revenue from new early attendees: €</span><span class="si">{</span><span class="n">potential_gained_bar_revenue</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated number of new early attendees: 524
+Potential gained bar revenue from new early attendees: €39,258.73
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the net impact on overall revenue</span>
+<span class="n">net_revenue_impact</span> <span class="o">=</span> <span class="n">potential_gained_bar_revenue</span> <span class="o">-</span> <span class="n">potential_lost_revenue</span>
+
+<span class="c1"># Print the calculated net revenue impact</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Net revenue impact of offering cheaper early admission tickets: €</span><span class="si">{</span><span class="n">net_revenue_impact</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Net revenue impact of offering cheaper early admission tickets: €3,578.13
+</pre></div>
+</div>
+</div>
+</div>
+<p>This allows us to visualize the trade-off between ticket discounting and overall profitability under different behavioral responses.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># 1. Define a range of hypothetical conversion rates</span>
+<span class="n">conversion_rates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span> <span class="c1"># From 0% to 30% in 1% increments</span>
+
+<span class="c1"># Initialize lists to store results</span>
+<span class="n">net_revenue_impacts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Get necessary pre-calculated values</span>
+<span class="n">total_regular_tickets</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s2">&quot;ticket_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">current_avg_regular_price</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">avg_bar_spend_per_early_attendee</span> <span class="o">=</span> <span class="n">early_attendees_bar_spend</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;order_id&quot;</span><span class="p">)[</span><span class="s2">&quot;total_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">original_conversion_rate_assumption</span> <span class="o">=</span> <span class="mf">0.15</span> <span class="c1"># The conversion rate used to estimate number of early attendees</span>
+
+<span class="c1"># 2-6. Calculate net revenue impact for each conversion rate</span>
+<span class="k">for</span> <span class="n">conversion_rate</span> <span class="ow">in</span> <span class="n">conversion_rates</span><span class="p">:</span>
+    <span class="n">estimated_switching_buyers</span> <span class="o">=</span> <span class="n">total_regular_tickets</span> <span class="o">*</span> <span class="n">conversion_rate</span>
+    <span class="n">potential_lost_regular_ticket_revenue</span> <span class="o">=</span> <span class="n">estimated_switching_buyers</span> <span class="o">*</span> <span class="n">current_avg_regular_price</span>
+    <span class="c1"># The estimated number of new early attendees is based on the *original* conversion rate assumption</span>
+    <span class="c1"># applied to the *new* number of switching buyers at the hypothetical conversion rate.</span>
+    <span class="n">estimated_new_early_attendees</span> <span class="o">=</span> <span class="n">estimated_switching_buyers</span> <span class="o">*</span> <span class="n">original_conversion_rate_assumption</span>
+    <span class="n">potential_gained_bar_revenue</span> <span class="o">=</span> <span class="n">estimated_new_early_attendees</span> <span class="o">*</span> <span class="n">avg_bar_spend_per_early_attendee</span>
+    <span class="n">net_revenue_impact</span> <span class="o">=</span> <span class="n">potential_gained_bar_revenue</span> <span class="o">-</span> <span class="n">potential_lost_regular_ticket_revenue</span>
+    <span class="n">net_revenue_impacts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net_revenue_impact</span><span class="p">)</span>
+
+<span class="c1"># 7. Create a pandas DataFrame to store the conversion rates and their corresponding net revenue impacts.</span>
+<span class="n">impact_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;conversion_rate&quot;</span><span class="p">:</span> <span class="n">conversion_rates</span><span class="p">,</span>
+    <span class="s2">&quot;net_revenue_impact&quot;</span><span class="p">:</span> <span class="n">net_revenue_impacts</span>
+<span class="p">})</span>
+
+<span class="c1"># 8-10. Create and display a line plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">impact_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;conversion_rate&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;net_revenue_impact&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Net Revenue Impact vs. Conversion Rate of Regular Buyers to Early Tickets&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Conversion Rate of Regular Buyers to Early Tickets&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Net Revenue Impact (€)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">net_revenue_impacts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Get necessary pre-calculated values</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">total_regular_tickets</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s2">&quot;ticket_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">current_avg_regular_price</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">avg_bar_spend_per_early_attendee</span> <span class="o">=</span> <span class="n">early_attendees_bar_spend</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;order_id&quot;</span><span class="p">)[</span><span class="s2">&quot;total_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;regular_ticket_summary&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># Assume a range of price reductions for regular tickets to incentivize early arrival</span>
+<span class="c1"># Let&#39;s simulate price reductions from 0% to 30% in steps of 1%.</span>
+<span class="n">price_reductions_percentage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">price_reductions</span> <span class="o">=</span> <span class="n">price_reductions_percentage</span> <span class="o">/</span> <span class="mf">100.0</span>
+
+<span class="c1"># Assume a relationship between price reduction and conversion rate of regular buyers to early tickets.</span>
+<span class="c1"># This is a key assumption and can be adjusted.</span>
+<span class="c1"># Let&#39;s assume a linear relationship for simplicity to start:</span>
+<span class="c1"># conversion_rate = base_conversion_rate + (price_reduction_percentage / max_price_reduction_percentage) * additional_conversion_gain</span>
+<span class="c1"># We can assume a base conversion rate (e.g., a small percentage of regular buyers who might switch even with a small price difference)</span>
+<span class="c1"># and an additional gain based on the price reduction.</span>
+
+<span class="c1"># Let&#39;s use the previously assumed conversion_rate_assumption (0.15) as a point of reference,</span>
+<span class="c1"># assuming it corresponds to the current average price difference.</span>
+<span class="c1"># We&#39;ll simplify this for the simulation by assuming the conversion rate</span>
+<span class="c1"># is directly proportional to the price reduction percentage.</span>
+
+<span class="c1"># Example assumption: a 30% price reduction leads to a 30% conversion rate.</span>
+<span class="c1"># We can explore different sensitivities later if needed.</span>
+<span class="c1"># For now, let&#39;s assume conversion_rate = price_reduction</span>
+
+<span class="c1"># Get necessary pre-calculated values from previous steps</span>
+<span class="k">if</span> <span class="s1">&#39;regular_ticket_summary&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">regular_ticket_summary</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">total_regular_tickets</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s2">&quot;ticket_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">current_avg_regular_price</span> <span class="o">=</span> <span class="n">regular_ticket_summary</span><span class="p">[</span><span class="s1">&#39;average_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regular ticket summary not found. Please ensure previous steps were run successfully.&quot;</span><span class="p">)</span>
+    <span class="n">total_regular_tickets</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">current_avg_regular_price</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="s1">&#39;early_attendees_bar_spend&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">early_attendees_bar_spend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+     <span class="k">if</span> <span class="ow">not</span> <span class="n">early_attendees_bar_spend</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">avg_bar_spend_per_early_attendee</span> <span class="o">=</span> <span class="n">early_attendees_bar_spend</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;order_id&quot;</span><span class="p">)[</span><span class="s2">&quot;total_price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+     <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No data for early attendees bar spend.&quot;</span><span class="p">)</span>
+        <span class="n">avg_bar_spend_per_early_attendee</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Early attendees bar spend data not found. Please ensure previous steps were run successfully.&quot;</span><span class="p">)</span>
+    <span class="n">avg_bar_spend_per_early_attendee</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="c1"># Initialize lists to store results</span>
+<span class="n">simulated_early_prices</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">estimated_switching_buyers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">potential_lost_ticket_revenues</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">potential_gained_bar_revenues</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">net_revenue_impacts_simulated</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Simulate scenarios for each price reduction</span>
+<span class="k">for</span> <span class="n">pr</span> <span class="ow">in</span> <span class="n">price_reductions</span><span class="p">:</span>
+    <span class="c1"># Calculate the simulated early ticket price</span>
+    <span class="n">simulated_early_price</span> <span class="o">=</span> <span class="n">current_avg_regular_price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pr</span><span class="p">)</span>
+    <span class="n">simulated_early_prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulated_early_price</span><span class="p">)</span>
+
+    <span class="c1"># Assume conversion rate is equal to the price reduction percentage (as a decimal)</span>
+    <span class="c1"># This is a simple assumption and can be refined.</span>
+    <span class="n">conversion_rate</span> <span class="o">=</span> <span class="n">pr</span>
+
+    <span class="c1"># Estimate the number of regular ticket buyers who switch</span>
+    <span class="n">switching_buyers</span> <span class="o">=</span> <span class="n">total_regular_tickets</span> <span class="o">*</span> <span class="n">conversion_rate</span>
+    <span class="n">estimated_switching_buyers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">switching_buyers</span><span class="p">)</span>
+
+    <span class="c1"># Calculate potential lost regular ticket revenue</span>
+    <span class="c1"># This is the revenue lost from the switching buyers who would have paid the full regular price</span>
+    <span class="n">lost_revenue</span> <span class="o">=</span> <span class="n">switching_buyers</span> <span class="o">*</span> <span class="n">current_avg_regular_price</span>
+    <span class="n">potential_lost_ticket_revenues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lost_revenue</span><span class="p">)</span>
+
+    <span class="c1"># Calculate potential gained bar revenue from new early attendees</span>
+    <span class="c1"># Assuming new early attendees spend the same at the bar as current early attendees</span>
+    <span class="n">gained_bar_revenue</span> <span class="o">=</span> <span class="n">switching_buyers</span> <span class="o">*</span> <span class="n">avg_bar_spend_per_early_attendee</span>
+    <span class="n">potential_gained_bar_revenues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gained_bar_revenue</span><span class="p">)</span>
+
+
+    <span class="c1"># Calculate the net revenue impact</span>
+    <span class="n">net_impact</span> <span class="o">=</span> <span class="n">gained_bar_revenue</span> <span class="o">-</span> <span class="n">lost_revenue</span>
+    <span class="n">net_revenue_impacts_simulated</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net_impact</span><span class="p">)</span>
+
+<span class="c1"># Create a pandas DataFrame to store the simulation results</span>
+<span class="n">simulation_impact_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;price_reduction_percentage&quot;</span><span class="p">:</span> <span class="n">price_reductions_percentage</span><span class="p">,</span>
+    <span class="s2">&quot;simulated_early_price&quot;</span><span class="p">:</span> <span class="n">simulated_early_prices</span><span class="p">,</span>
+    <span class="s2">&quot;estimated_switching_buyers&quot;</span><span class="p">:</span> <span class="n">estimated_switching_buyers</span><span class="p">,</span>
+    <span class="s2">&quot;potential_lost_ticket_revenue&quot;</span><span class="p">:</span> <span class="n">potential_lost_ticket_revenues</span><span class="p">,</span>
+    <span class="s2">&quot;potential_gained_bar_revenue&quot;</span><span class="p">:</span> <span class="n">potential_gained_bar_revenues</span><span class="p">,</span>
+    <span class="s2">&quot;net_revenue_impact&quot;</span><span class="p">:</span> <span class="n">net_revenue_impacts_simulated</span>
+<span class="p">})</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">simulation_impact_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Create the visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">simulation_impact_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;price_reduction_percentage&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;net_revenue_impact&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulated Net Revenue Impact vs. Percentage Price Reduction for Regular Tickets (to incentivize early arrival)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Percentage Price Reduction for Regular Tickets&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Simulated Net Revenue Impact (€)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-cd9953f8-6075-42ed-9bbe-c8b52f7e72a5" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price_reduction_percentage</th>
+      <th>simulated_early_price</th>
+      <th>estimated_switching_buyers</th>
+      <th>potential_lost_ticket_revenue</th>
+      <th>potential_gained_bar_revenue</th>
+      <th>net_revenue_impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>10.220446</td>
+      <td>0.00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>10.118241</td>
+      <td>232.74</td>
+      <td>2378.706509</td>
+      <td>17448.323479</td>
+      <td>15069.616971</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>10.016037</td>
+      <td>465.48</td>
+      <td>4757.413017</td>
+      <td>34896.646958</td>
+      <td>30139.233941</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>9.913832</td>
+      <td>698.22</td>
+      <td>7136.119526</td>
+      <td>52344.970437</td>
+      <td>45208.850912</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>9.811628</td>
+      <td>930.96</td>
+      <td>9514.826035</td>
+      <td>69793.293917</td>
+      <td>60278.467882</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-cd9953f8-6075-42ed-9bbe-c8b52f7e72a5')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-cd9953f8-6075-42ed-9bbe-c8b52f7e72a5 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-cd9953f8-6075-42ed-9bbe-c8b52f7e72a5');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-93e5f0ea-8821-4937-bbdd-367dcd5ed069">
+      <button class="colab-df-quickchart" onclick="quickchart('df-93e5f0ea-8821-4937-bbdd-367dcd5ed069')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-93e5f0ea-8821-4937-bbdd-367dcd5ed069 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div><img alt="../_images/5d389cacd663869748f7e492fe6ca6cf2eae8e48a711165dc4a3caeae8b69a94.png" src="../_images/5d389cacd663869748f7e492fe6ca6cf2eae8e48a711165dc4a3caeae8b69a94.png" />
+</div>
+</div>
+<p>By merging the dataframes based on transaction and scan dates, we can link bar purchases to individual attendees and their ticket categories, allowing us to analyze spending habits of early arrivers compared to others.</p>
+</section>
+</section>
+<section id="aggregating-insights-daily-summaries-of-attendance-and-spending">
+<h2>Aggregating Insights: Daily Summaries of Attendance and Spending<a class="headerlink" href="#aggregating-insights-daily-summaries-of-attendance-and-spending" title="Link to this heading">#</a></h2>
+<p>To understand the overall impact of early admissions on a given event day, we need to aggregate the data. This involves summarizing the total number of attendees, the count of early attendees, and the total bar revenue for each day.</p>
+</section>
+<section id="identifying-trends-analyzing-the-ratio-of-early-arrivals">
+<h2>Identifying Trends: Analyzing the Ratio of Early Arrivals<a class="headerlink" href="#identifying-trends-analyzing-the-ratio-of-early-arrivals" title="Link to this heading">#</a></h2>
+<p>To further analyze the impact of early admissions, we’ll look at the proportion of early visitors relative to the total number of attendees each day. This allows us to categorize days based on whether they had a high or low ratio of early arrivers.</p>
+</section>
+<section id="visualizing-the-impact-bar-revenue-by-early-arrival-group">
+<h2>Visualizing the Impact: Bar Revenue by Early Arrival Group<a class="headerlink" href="#visualizing-the-impact-bar-revenue-by-early-arrival-group" title="Link to this heading">#</a></h2>
+<p>A clear visualization can help us understand the relationship between early arrivals and bar revenue. We’ll create a bar plot to compare the average total bar spend for days with many versus few early arrivals.</p>
+<p>We’ll generate a bar plot showing the average total bar revenue for the two groups of days: “many early arrivals” and “few early arrivals”. This visual comparison will highlight the difference in spending between these groups.</p>
+</section>
+<section id="initial-insights-the-impact-of-early-arrivals-on-bar-revenue">
+<h2>Initial Insights: The Impact of Early Arrivals on Bar Revenue<a class="headerlink" href="#initial-insights-the-impact-of-early-arrivals-on-bar-revenue" title="Link to this heading">#</a></h2>
+<p>Based on our initial analysis, we’ve found a statistically significant difference in bar revenue between days with a higher proportion of early arrivals and those with a lower proportion. This suggests that encouraging early attendance could indeed have a positive impact on bar sales.</p>
+<p>We’ll analyze the sales volume and average price for both early and regular tickets based on our ticket data. This provides us with the baseline figures needed to estimate potential revenue changes under different scenarios.</p>
+</section>
+<section id="visualizing-the-possibilities-revenue-impact-across-scenarios">
+<h2>Visualizing the Possibilities: Revenue Impact Across Scenarios<a class="headerlink" href="#visualizing-the-possibilities-revenue-impact-across-scenarios" title="Link to this heading">#</a></h2>
+<p>To fully grasp the potential outcomes of this strategy under different assumptions about how many regular buyers would switch, we’ll visualize the net revenue impact across a range of conversion rates.</p>
+<p>We’ll simulate the net revenue impact for a spectrum of potential conversion rates of regular ticket buyers to early admission. Plotting these results will show us how sensitive the overall profitability is to the percentage of regular buyers who are incentivized to arrive early.</p>
+</section>
+<section id="wrapping-up-key-findings-and-future-considerations">
+<h2>Wrapping Up: Key Findings and Future Considerations<a class="headerlink" href="#wrapping-up-key-findings-and-future-considerations" title="Link to this heading">#</a></h2>
+<p>We’ve analyzed the potential financial impact of incentivizing regular ticket buyers to switch to cheaper early admission tickets. Our analysis involved estimating lost ticket revenue, gained bar revenue, and calculating the net effect under certain assumptions. The visualizations help illustrate the potential trade-offs and the sensitivity of the outcome to the conversion rate.</p>
+<p>These findings provide a foundation for making informed decisions about pricing strategies and event planning to potentially increase overall revenue by influencing attendee arrival times. Further analysis could refine the assumptions made, explore different pricing tiers, or incorporate additional factors influencing attendee behavior.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dataset.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dataset</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Predicting staff &amp; bar revenue</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-behavioral-perspective">A Behavioral Perspective</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-early-ticket-pricing-and-sales-distribution">Evaluating Early Ticket Pricing and Sales Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-conversion-impact-based-on-price-differences">Estimating Conversion Impact Based on Price Differences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-the-net-revenue-impact-of-early-ticket-pricing-strategies">Simulating the Net Revenue Impact of Early Ticket Pricing Strategies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-insights-daily-summaries-of-attendance-and-spending">Aggregating Insights: Daily Summaries of Attendance and Spending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-trends-analyzing-the-ratio-of-early-arrivals">Identifying Trends: Analyzing the Ratio of Early Arrivals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-impact-bar-revenue-by-early-arrival-group">Visualizing the Impact: Bar Revenue by Early Arrival Group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-insights-the-impact-of-early-arrivals-on-bar-revenue">Initial Insights: The Impact of Early Arrivals on Bar Revenue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-possibilities-revenue-impact-across-scenarios">Visualizing the Possibilities: Revenue Impact Across Scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-up-key-findings-and-future-considerations">Wrapping Up: Key Findings and Future Considerations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Seahorse
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
