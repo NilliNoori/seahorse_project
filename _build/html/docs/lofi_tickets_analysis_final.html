@@ -428,27 +428,26 @@ document.write(`
 <h1>The impact of early admission tickets on bar revenue<a class="headerlink" href="#the-impact-of-early-admission-tickets-on-bar-revenue" title="Link to this heading">#</a></h1>
 <p>Understanding what drives bar revenue during events is essential for optimizing both guest experience and business performance. One potential factor influencing revenue is the timing of guest arrival. Specifically, guests who arrive early may have more time to purchase drinks, engage with the venue, and ultimately contribute more to overall sales.</p>
 <p>This analysis investigates the relationship between early admission ticket holders and bar spending behavior. By analyzing visitor arrival patterns and comparing them with bar revenue data, we aim to answer the following question:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Do earlier arrivals lead to higher bar revenue?
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>Do earlier arrivals lead to higher bar revenue?</p></li>
+</ul>
 <p>The results can help inform ticketing strategy, event scheduling, and promotional efforts aimed at maximizing on-site sales.</p>
 <section id="a-behavioral-perspective">
 <h2>A Behavioral Perspective<a class="headerlink" href="#a-behavioral-perspective" title="Link to this heading">#</a></h2>
 <p>To explore whether early guest arrivals contribute to increased spending, we analyzed bar revenue on days with high versus low early arrival ratios. The underlying idea is simple: guests who enter earlier may have more idle time to consume drinks before the event peaks, potentially boosting bar sales.</p>
 <p>To test this, we split event days into two categories:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Many early arrivals (above-median early arrival ratio)
-
-Few early arrivals (below-median)
-</pre></div>
-</div>
+<ul class="simple">
+<li><p><strong>Many early arrivals</strong> (above-median early arrival ratio)</p></li>
+<li><p><strong>Few early arrivals</strong> (below-median)</p></li>
+</ul>
 <p>We then calculated the average total bar revenue for each group and visualized the results using a bar plot.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
@@ -480,6 +479,11 @@ Few early arrivals (below-median)
 </div>
 </div>
 </details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
@@ -504,15 +508,15 @@ Few early arrivals (below-median)
 </pre></div>
 </div>
 </div>
+</details>
 </div>
+<p><img alt="Early arrivals barplot" src="../_images/bar_revenue.png" /></p>
 <p>The chart displays the average total bar revenue on days with a high versus low share of early arrivals.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On days with many early arrivals, average bar revenue was approximately €20,895.
-
-On days with fewer early arrivals, average bar revenue was approximately €16,262.
-
-This represents a difference of over €4,600.
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>On days with many early arrivals, average bar revenue was approximately €20,895.</p></li>
+<li><p>On days with fewer early arrivals, average bar revenue was approximately €16,262.</p></li>
+<li><p>This represents a difference of over €4,600.</p></li>
+</ul>
 <p>To assess whether this difference is statistically significant, an independent t-test was conducted. The result (p = 0.0211) indicates a statistically significant difference at the 5% level. This means it is unlikely that the observed difference occurred by chance.</p>
 <p>These findings suggest that a higher proportion of early-arriving guests is associated with increased bar revenue. This insight may support strategic decisions around early access ticketing, guest flow management, and event scheduling aimed at maximizing on-site revenue.</p>
 </section>
